@@ -8,7 +8,7 @@
 
 ##### - Then in the unsup training, update only m(x) while fixing s as:
 
-~
+~~
 - s = (1e-4)/3 fixed -- already done in: 
 https://github.com/minyoungkim21/dSprites-Warm-start-from-VAE-trained-with-supervision/edit/master/README.md
 
@@ -16,7 +16,7 @@ https://github.com/minyoungkim21/dSprites-Warm-start-from-VAE-trained-with-super
 
 --> Actually, s* = (shape: 0.0023, size: 0.0098, rotation: 0.278, x-pos: 0.005, y-pos: 0.005)
 --> The results were similar to s = (1e-4)/3
-~
+~~
 
 - s_j = 2.0 * Delta_j (where Delta_j = gap b/w two adjacent GT z_j points, eg, Delta_shape = 0.9)
 
