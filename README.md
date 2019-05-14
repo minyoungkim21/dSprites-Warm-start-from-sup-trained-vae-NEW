@@ -8,15 +8,9 @@
 
 ##### - Then in the unsup training, update only m(x) while fixing s as:
 
-~~
-- s = (1e-4)/3 fixed -- already done in: 
+~~- s = (1e-4)/3 fixed -- already done in: 
 https://github.com/minyoungkim21/dSprites-Warm-start-from-VAE-trained-with-supervision/edit/master/README.md
-
-- s = s* fixed (where s* = MLE stdev from sup-training, ie, s* = sqrt( 1/N \sum_n (z^n - m*(x^n))^2 ) for the optimal m*())
-
---> Actually, s* = (shape: 0.0023, size: 0.0098, rotation: 0.278, x-pos: 0.005, y-pos: 0.005)
---> The results were similar to s = (1e-4)/3
-~~
+- s = s* fixed (where s* = MLE stdev from sup-training, ie, s* = sqrt( 1/N \sum_n (z^n - m*(x^n))^2 ) for the optimal m*()) --> Actually, s* = (shape: 0.0023, size: 0.0098, rotation: 0.278, x-pos: 0.005, y-pos: 0.005) --> The results were similar to s = (1e-4)/3~~
 
 - s_j = 2.0 * Delta_j (where Delta_j = gap b/w two adjacent GT z_j points, eg, Delta_shape = 0.9)
 
