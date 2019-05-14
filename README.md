@@ -2,7 +2,7 @@
 
 ### 0) Setups
 
-#### Homo-scedastic q(z|x) 
+#### A. Homo-scedastic q(z|x) 
 
 ##### - In the sup-training, use q(z|x) = N(z; m(x), s^2), ie, s(x) = s for all x
 
@@ -19,7 +19,7 @@ https://github.com/minyoungkim21/dSprites-Warm-start-from-VAE-trained-with-super
 - s_j = 2.0 * Delta_j (where Delta_j = gap b/w two adjacent GT z_j points, eg, Delta_shape = 0.9)
 
 
-#### Hetero-scedastic q(z|x) = N(z; m(x), s(x)^2)
+#### B. Hetero-scedastic q(z|x) = N(z; m(x), s(x)^2)
 
 Oncesup-trained,
 
