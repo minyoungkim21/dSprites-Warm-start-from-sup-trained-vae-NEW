@@ -8,9 +8,14 @@
 
 ##### - Then in the unsup training, update only m(x) while fixing s as:
 
-~~- s = (1e-4)/3 fixed -- already done in: 
+- s = (1e-4)/3 fixed -- already done in: 
 https://github.com/minyoungkim21/dSprites-Warm-start-from-VAE-trained-with-supervision/edit/master/README.md
-- s = s* fixed (where s* = MLE stdev from sup-training, ie, s* = sqrt( 1/N \sum_n (z^n - m*(x^n))^2 ) for the optimal m*()) --> Actually, s* = (shape: 0.0023, size: 0.0098, rotation: 0.278, x-pos: 0.005, y-pos: 0.005) --> The results were similar to s = (1e-4)/3~~
+
+- s = s* fixed (where s* = MLE stdev from sup-training, ie, s* = sqrt( 1/N \sum_n (z^n - m*(x^n))^2 ) for the optimal m*()) 
+
+--> Actually, s* = (shape: 0.0023, size: 0.0098, rotation: 0.278, x-pos: 0.005, y-pos: 0.005) 
+
+--> The results were similar to s = (1e-4)/3
 
 - s_j = 2.0 * Delta_j (where Delta_j = gap b/w two adjacent GT z_j points, eg, Delta_shape = 0.9)
 
@@ -22,14 +27,97 @@ https://github.com/minyoungkim21/dSprites-Warm-start-from-VAE-trained-with-super
 ##### - Then in the unsup training, update both m(x) and s(x)
 
 
-### 1) Unsup-training results with setup-A
+### 1) Unsup-training results with setup-A (Homo-scedastic, s_j = 2.0 * Delta_j)
 
 - We fixed prior p(z) as ground-truth as follows
 
 ![p_den_2](https://user-images.githubusercontent.com/44901665/57574468-8976e200-7431-11e9-886c-71b9f98df049.jpg)
 
+#### q(z)
+
+- Before learning starts (ie, the supervised-trained VAE)
+
+![q_den_2](https://user-images.githubusercontent.com/44901665/57694289-412f0e00-7643-11e9-9046-2a42d50d2223.jpg)
+
+- At iter# 100
+
+![q_den_100](https://user-images.githubusercontent.com/44901665/57694291-412f0e00-7643-11e9-8838-2b4c52253761.jpg)
+
+- At iter# 200
+
+![q_den_200](https://user-images.githubusercontent.com/44901665/57694292-41c7a480-7643-11e9-8713-47a583f8d1df.jpg)
+
+- At iter# 300
+
+![q_den_300](https://user-images.githubusercontent.com/44901665/57694293-41c7a480-7643-11e9-8e74-5786bef2af3a.jpg)
+
+- At iter# 400
+
+![q_den_400](https://user-images.githubusercontent.com/44901665/57694295-41c7a480-7643-11e9-81ee-e3ff0d43d2e3.jpg)
 
 
+#### q(z|x) 
+
+- Before learning starts
+
+![qx_den_2](https://user-images.githubusercontent.com/44901665/57694309-4ab87600-7643-11e9-88c1-bebe847da5d8.jpg)
+
+- At iter# 100
+
+![qx_den_100](https://user-images.githubusercontent.com/44901665/57694310-4ab87600-7643-11e9-8f2a-2ab97883b467.jpg)
+
+- At iter# 200
+
+![qx_den_200](https://user-images.githubusercontent.com/44901665/57694311-4ab87600-7643-11e9-8ba6-94d5300936c9.jpg)
+
+- At iter# 300
+
+![qx_den_300](https://user-images.githubusercontent.com/44901665/57694313-4ab87600-7643-11e9-8042-f20ff7d80ff7.jpg)
+
+- At iter# 400
+
+![qx_den_400](https://user-images.githubusercontent.com/44901665/57694314-4b510c80-7643-11e9-9c3a-ce97d41c2ef6.jpg)
+
+
+#### Latent traversal
+
+- Before learning starts
+
+![fixed0](https://user-images.githubusercontent.com/44901665/57694347-63c12700-7643-11e9-9f03-26a4a2d8d1be.gif)
+
+- At iter# 100
+
+![fixed0](https://user-images.githubusercontent.com/44901665/57694350-6754ae00-7643-11e9-85f7-6e76ca19cd0c.gif)
+
+- At iter# 200
+
+![fixed0](https://user-images.githubusercontent.com/44901665/57694381-720f4300-7643-11e9-9bfa-26afdb11be8a.gif)
+
+- At iter# 300
+
+![fixed0](https://user-images.githubusercontent.com/44901665/57694392-7c314180-7643-11e9-9335-63b0b8609a2a.gif)
+
+- At iter# 400
+
+![fixed0](https://user-images.githubusercontent.com/44901665/57694412-85baa980-7643-11e9-8895-4ab0eb3d700a.gif)
+
+
+#### Loss functions and evaluation metrics
+
+- recon loss
+
+![recon](https://user-images.githubusercontent.com/44901665/57694440-966b1f80-7643-11e9-8e9f-d6a2950d35b9.png)
+
+- kl loss
+
+![kl](https://user-images.githubusercontent.com/44901665/57694437-95d28900-7643-11e9-9946-79466b48a599.png)
+
+- metrics
+
+![metrics](https://user-images.githubusercontent.com/44901665/57694439-95d28900-7643-11e9-86ef-1aa2794a087b.png)
+
+
+----
 
 
 ### 2) Unsup-training results with setup-B (Hetero-scedastic, update both m(x) and s(x))
