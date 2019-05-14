@@ -111,3 +111,18 @@ https://github.com/minyoungkim21/dSprites-Warm-start-from-VAE-trained-with-super
 ![fixed0](https://user-images.githubusercontent.com/44901665/57693669-b13c9480-7641-11e9-9c81-9074cd062e47.gif)
 
 
+#### Loss functions and evaluation metrics
+
+- recon loss
+
+![recon_hetero](https://user-images.githubusercontent.com/44901665/57693839-18f2df80-7642-11e9-8e1b-3910df7ccb3c.png)
+
+- kl loss
+
+![kl_hetero](https://user-images.githubusercontent.com/44901665/57693837-185a4900-7642-11e9-8efe-b9386cad002f.png)
+
+- metrics
+
+![metrics_hetero](https://user-images.githubusercontent.com/44901665/57693838-18f2df80-7642-11e9-9aab-880f4dd2ca7c.png)
+
+
